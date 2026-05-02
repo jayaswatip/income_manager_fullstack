@@ -11,7 +11,7 @@ function Dashboard() {
         try {
             const res = await API.get("/income/get");
             setIncome(res.data);
-        } catch (error) {
+        } catch {
             alert("Please login again");
             navigate("/");
         }
@@ -31,19 +31,19 @@ function Dashboard() {
         fetchIncome();
     }, []);
 
+    const totalIncome = income.reduce(
+        (acc, item) => acc + item.amount,
+        0
+    );
+
     return (
         <div>
             <h2>Dashboard</h2>
 
-            <button onClick={() => navigate("/add-income")}>
-                Add Income
-            </button>
+            <button onClick={() => navigate("/add-income")}>Add Income</button>
+            <button onClick={logout}>Logout</button>
 
-            <button onClick={logout}>
-                Logout
-            </button>
-
-            {income.length === 0 && <p>No income found</p>}
+            <h3>Total Income: ₹{totalIncome}</h3>
 
             {income.map((item) => (
                 <div key={item._id}>
@@ -51,6 +51,10 @@ function Dashboard() {
                     <h4>{item.title}</h4>
                     <p>₹{item.amount}</p>
                     <p>{item.category}</p>
+
+                    <button onClick={() => navigate(`/edit/${item._id}`)}>
+                        Edit
+                    </button>
 
                     <button onClick={() => deleteIncome(item._id)}>
                         Delete
