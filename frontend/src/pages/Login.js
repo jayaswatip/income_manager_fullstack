@@ -20,12 +20,9 @@ function Login() {
 
         try {
             const res = await API.post("/auth/login", form);
-
             localStorage.setItem("token", res.data.token);
-
             navigate("/dashboard");
-
-        } catch (error) {
+        } catch {
             alert("Invalid Credentials");
         }
     };
@@ -35,25 +32,12 @@ function Login() {
             <h2>Login</h2>
 
             <form onSubmit={handleSubmit}>
-                <input
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                />
-
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                />
-
+                <input name="email" placeholder="Email" onChange={handleChange} />
+                <input name="password" type="password" placeholder="Password" onChange={handleChange} />
                 <button type="submit">Login</button>
             </form>
 
-            <p>
-                Don't have an account? <Link to="/register">Register</Link>
-            </p>
+            <p>Don't have an account? <Link to="/register">Register</Link></p>
         </div>
     );
 }
