@@ -21,10 +21,8 @@ function Register() {
 
         try {
             await API.post("/auth/register", form);
-
             alert("Registered Successfully");
             navigate("/");
-
         } catch (error) {
             alert(error.response?.data || "Error");
         }
@@ -35,32 +33,13 @@ function Register() {
             <h2>Register</h2>
 
             <form onSubmit={handleSubmit}>
-
-                <input
-                    name="name"
-                    placeholder="Name"
-                    onChange={handleChange}
-                />
-
-                <input
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                />
-
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                />
-
+                <input name="name" placeholder="Name" onChange={handleChange} />
+                <input name="email" placeholder="Email" onChange={handleChange} />
+                <input name="password" type="password" placeholder="Password" onChange={handleChange} />
                 <button type="submit">Register</button>
             </form>
 
-            <p>
-                Already have an account? <Link to="/">Login</Link>
-            </p>
+            <p>Already have an account? <Link to="/">Login</Link></p>
         </div>
     );
 }
