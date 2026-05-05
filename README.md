@@ -75,13 +75,6 @@ income_manager/
 └── README.md
 ```
 
-## For Placement Explanation
 
-**Key Points to Mention:**
-1. Built a full-stack CRUD application using MERN stack
-2. Implemented JWT-based authentication for secure access
-3. Created RESTful APIs for income management operations
-4. Used React hooks (useState, useEffect) and React Router for SPA navigation
-5. Connected frontend to backend using Axios with interceptors for token handling
 
 **Architecture:** Client (React) → REST API (Express) → Database (MongoDB Atlas)
