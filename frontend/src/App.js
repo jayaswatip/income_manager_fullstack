@@ -9,6 +9,7 @@ import AddExpense from "./pages/AddExpense";
 import EditExpense from "./pages/EditExpense";
 import Budget from "./pages/Budget";
 import SavingsGoals from "./pages/SavingsGoals";
+import RecurringTransactions from "./pages/RecurringTransactions";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/edit-expense/:id" element={<EditExpense />} />
         <Route path="/budget" element={<Budget />} />
         <Route path="/savings-goals" element={<SavingsGoals />} />
+        <Route path="/recurring" element={<RecurringTransactions />} />
       </Routes>
     </BrowserRouter>
   );

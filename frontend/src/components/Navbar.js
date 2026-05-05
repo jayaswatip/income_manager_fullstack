@@ -38,6 +38,7 @@ function Navbar() {
                             <Link to="/add-expense">Add Expense</Link>
                             <Link to="/budget">Budget</Link>
                             <Link to="/savings-goals">Goals</Link>
+                            <Link to="/recurring">Recurring</Link>
                             <button onClick={logout}>Logout</button>
                         </>
                     ) : (
