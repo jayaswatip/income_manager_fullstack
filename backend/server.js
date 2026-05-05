@@ -21,6 +21,7 @@ app.use("/api/income", require("./routes/incomeRoutes"));
 app.use("/api/expense", require("./routes/expenseRoutes"));
 app.use("/api/budget", require("./routes/budgetRoutes"));
 app.use("/api/savings-goal", require("./routes/savingsGoalRoutes"));
+app.use("/api/recurring", require("./routes/recurringTransactionRoutes"));
 
 /* Test Route */
 app.get("/", (req, res) => {
