@@ -424,3 +424,66 @@ body {
 .badge-investment { background: #fce7f3; color: #9d174d; }
 .badge-business { background: #fef3c7; color: #92400e; }
 .badge-other { background: #f3f4f6; color: #374151; }
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --text-light: #94a3b8;
+  --border: #334155;
+}
+
+[data-theme="dark"] .navbar {
+  background: #1e293b;
+}
+
+[data-theme="dark"] .badge-salary { background: #1e3a8a; color: #93c5fd; }
+[data-theme="dark"] .badge-freelance { background: #14532d; color: #86efac; }
+[data-theme="dark"] .badge-investment { background: #831843; color: #f9a8d4; }
+[data-theme="dark"] .badge-business { background: #78350f; color: #fcd34d; }
+[data-theme="dark"] .badge-other { background: #374151; color: #d1d5db; }
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--border);
+}
+
+/* Sort dropdown */
+.sort-select {
+  min-width: 150px;
+}
+
+/* Export button */
+.export-btn {
+  background: #8b5cf6;
+  color: white;
+}
+
+.export-btn:hover {
+  background: #7c3aed;
+}
+
+/* Date range inputs */
+.date-range {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.date-range input {
+  padding: 0.5rem;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+}
