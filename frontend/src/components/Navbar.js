@@ -37,6 +37,7 @@ function Navbar() {
                             <Link to="/add-income">Add Income</Link>
                             <Link to="/add-expense">Add Expense</Link>
                             <Link to="/budget">Budget</Link>
+                            <Link to="/savings-goals">Goals</Link>
                             <button onClick={logout}>Logout</button>
                         </>
                     ) : (
