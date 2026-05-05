@@ -3,6 +3,7 @@ import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from "chart.js";
 import { Pie, Bar } from "react-chartjs-2";
+import { generateMonthlyReport } from "../utils/pdfExport";
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
 
@@ -293,7 +294,14 @@ function Dashboard() {
                         <option value="category-asc">Category (A-Z)</option>
                     </select>
                     <button className="btn export-btn" onClick={exportToCSV} disabled={filteredData.length === 0}>
-                        📥 Export CSV
+                        📥 CSV
+                    </button>
+                    <button 
+                        className="btn" 
+                        onClick={() => generateMonthlyReport(income, expenses, stats, budget)}
+                        style={{ background: '#ff5722', color: 'white' }}
+                    >
+                        📄 PDF Report
                     </button>
                     <button 
                         className={`btn ${activeTab === "income" ? "btn-secondary" : "btn-danger"}`}
