@@ -11,6 +11,10 @@ function Dashboard() {
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [categoryFilter, setCategoryFilter] = useState("");
+    const [sortBy, setSortBy] = useState("date");
+    const [sortOrder, setSortOrder] = useState("desc");
+    const [dateFrom, setDateFrom] = useState("");
+    const [dateTo, setDateTo] = useState("");
     const navigate = useNavigate();
 
     const fetchIncome = async () => {
@@ -41,12 +45,62 @@ function Dashboard() {
     }, []);
 
     const filteredIncome = useMemo(() => {
-        return income.filter(item => {
+        let filtered = income.filter(item => {
             const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase());
             const matchesCategory = !categoryFilter || item.category === categoryFilter;
-            return matchesSearch && matchesCategory;
+            const matchesDateFrom = !dateFrom || new Date(item.date) >= new Date(dateFrom);
+            const matchesDateTo = !dateTo || new Date(item.date) <= new Date(dateTo);
+            return matchesSearch && matchesCategory && matchesDateFrom && matchesDateTo;
         });
-    }, [income, search, categoryFilter]);
+
+        // Sort
+        filtered.sort((a, b) => {
+            let aVal, bVal;
+            if (sortBy === "date") {
+                aVal = new Date(a.date);
+                bVal = new Date(b.date);
+            } else if (sortBy === "amount") {
+                aVal = Number(a.amount);
+                bVal = Number(b.amount);
+            } else {
+                aVal = a[sortBy]?.toLowerCase();
+                bVal = b[sortBy]?.toLowerCase();
+            }
+
+            if (sortOrder === "asc") {
+                return aVal > bVal ? 1 : -1;
+            } else {
+                return aVal < bVal ? 1 : -1;
+            }
+        });
+
+        return filtered;
+    }, [income, search, categoryFilter, sortBy, sortOrder, dateFrom, dateTo]);
+
+    const exportToCSV = () => {
+        const headers = ["Title", "Amount", "Category", "Date"];
+        const rows = filteredIncome.map(item => [
+            item.title,
+            item.amount,
+            item.category,
+            new Date(item.date).toLocaleDateString()
+        ]);
+
+        const csvContent = [
+            headers.join(","),
+            ...rows.map(row => row.join(","))
+        ].join("\n");
+
+        const blob = new Blob([csvContent], { type: "text/csv" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `income_export_${new Date().toISOString().split("T")[0]}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    };
 
     const stats = useMemo(() => {
         const total = income.reduce((acc, item) => acc + Number(item.amount), 0);
@@ -172,6 +226,39 @@ function Dashboard() {
                             <option key={cat} value={cat}>{cat}</option>
                         ))}
                     </select>
+                    <div className="date-range">
+                        <input
+                            type="date"
+                            value={dateFrom}
+                            onChange={(e) => setDateFrom(e.target.value)}
+                            placeholder="From"
+                        />
+                        <span>to</span>
+                        <input
+                            type="date"
+                            value={dateTo}
+                            onChange={(e) => setDateTo(e.target.value)}
+                            placeholder="To"
+                        />
+                    </div>
+                    <select
+                        className="form-control sort-select"
+                        value={`${sortBy}-${sortOrder}`}
+                        onChange={(e) => {
+                            const [field, order] = e.target.value.split("-");
+                            setSortBy(field);
+                            setSortOrder(order);
+                        }}
+                    >
+                        <option value="date-desc">Date (Newest)</option>
+                        <option value="date-asc">Date (Oldest)</option>
+                        <option value="amount-desc">Amount (High-Low)</option>
+                        <option value="amount-asc">Amount (Low-High)</option>
+                        <option value="category-asc">Category (A-Z)</option>
+                    </select>
+                    <button className="btn export-btn" onClick={exportToCSV} disabled={filteredIncome.length === 0}>
+                        📥 Export CSV
+                    </button>
                     <button className="btn btn-secondary" onClick={() => navigate("/add-income")}>
                         + Add Income
                     </button>
