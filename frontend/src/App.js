@@ -5,6 +5,9 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import AddIncome from "./pages/AddIncome";
 import EditIncome from "./pages/EditIncome";
+import AddExpense from "./pages/AddExpense";
+import EditExpense from "./pages/EditExpense";
+import Budget from "./pages/Budget";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -17,6 +20,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add-income" element={<AddIncome />} />
         <Route path="/edit/:id" element={<EditIncome />} />
+        <Route path="/add-expense" element={<AddExpense />} />
+        <Route path="/edit-expense/:id" element={<EditExpense />} />
+        <Route path="/budget" element={<Budget />} />
       </Routes>
     </BrowserRouter>
   );

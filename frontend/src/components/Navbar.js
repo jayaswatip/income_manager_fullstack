@@ -25,7 +25,7 @@ function Navbar() {
         <nav className="navbar">
             <div className="container">
                 <Link to="/dashboard" className="logo">
-                    💰 Income Manager
+                    💰 Personal Finance
                 </Link>
                 <div className="nav-links">
                     <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
@@ -35,6 +35,8 @@ function Navbar() {
                         <>
                             <Link to="/dashboard">Dashboard</Link>
                             <Link to="/add-income">Add Income</Link>
+                            <Link to="/add-expense">Add Expense</Link>
+                            <Link to="/budget">Budget</Link>
                             <button onClick={logout}>Logout</button>
                         </>
                     ) : (
