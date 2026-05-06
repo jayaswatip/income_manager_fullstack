@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 
 const connectDB = require("./config/db");
 
+require("./services/notificationScheduler");
+
 dotenv.config();
 
 const app = express();
@@ -22,6 +24,7 @@ app.use("/api/expense", require("./routes/expenseRoutes"));
 app.use("/api/budget", require("./routes/budgetRoutes"));
 app.use("/api/savings-goal", require("./routes/savingsGoalRoutes"));
 app.use("/api/recurring", require("./routes/recurringTransactionRoutes"));
+app.use("/api/notifications", require("./routes/notificationRoutes"));
 
 /* Test Route */
 app.get("/", (req, res) => {

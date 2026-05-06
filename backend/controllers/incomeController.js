@@ -18,7 +18,7 @@ exports.addIncome = async (req, res) => {
             amount,
             category,
             date,
-            user: req.user
+            user: req.user.id
         });
 
         res.status(201).json(income);
@@ -38,7 +38,7 @@ exports.getIncome = async (req, res) => {
     try {
 
         const income = await Income.find({
-            user: req.user
+            user: req.user.id
         }).sort({ date: -1 });
 
         res.status(200).json(income);
@@ -64,7 +64,7 @@ exports.deleteIncome = async (req, res) => {
             return res.status(404).json("Income not found");
         }
 
-        if (income.user.toString() !== req.user)
+        if (income.user.toString() !== req.user.id)
         {
             return res.status(401).json("Not authorized");
         }
@@ -94,7 +94,7 @@ exports.updateIncome = async (req, res) => {
         }
 
         /* Check ownership */
-        if (income.user.toString() !== req.user)
+        if (income.user.toString() !== req.user.id)
         {
             return res.status(401).json("Not authorized");
         }
