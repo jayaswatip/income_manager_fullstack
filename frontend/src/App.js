@@ -10,6 +10,7 @@ import EditExpense from "./pages/EditExpense";
 import Budget from "./pages/Budget";
 import SavingsGoals from "./pages/SavingsGoals";
 import RecurringTransactions from "./pages/RecurringTransactions";
+import LandingPage from "./pages/LandingPage";
 import Navbar from "./components/Navbar";
 import { ToastProvider } from "./context/ToastContext";
 
@@ -19,7 +20,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-income" element={<AddIncome />} />

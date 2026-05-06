@@ -1,0 +1,322 @@
+/* Loading Skeleton Styles */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeleton-base {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+}
+
+/* Card Skeleton */
+.skeleton-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skeleton-title {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 60%;
+    height: 1.5rem;
+}
+
+.skeleton-action {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 80px;
+    height: 2rem;
+}
+
+.skeleton-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.skeleton-line {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    height: 1rem;
+    width: 100%;
+}
+
+.skeleton-line.short {
+    width: 60%;
+}
+
+/* Stats Skeleton */
+.skeleton-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.skeleton-stat-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skeleton-icon {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.skeleton-text {
+    flex: 1;
+}
+
+.skeleton-value {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 80%;
+    height: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-label {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 50%;
+    height: 0.875rem;
+}
+
+/* Table Skeleton */
+.skeleton-table {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.skeleton-table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 120px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.skeleton-th {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    height: 1rem;
+}
+
+.skeleton-table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 120px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.skeleton-td {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    height: 1rem;
+}
+
+.skeleton-td.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Chart Skeleton */
+.skeleton-chart {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.skeleton-chart-title {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 40%;
+    height: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-chart-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+}
+
+.skeleton-chart-circle {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+/* Form Skeleton */
+.skeleton-form {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.skeleton-form-title {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 60%;
+    height: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.skeleton-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-label {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 30%;
+    height: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-input {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 100%;
+    height: 2.75rem;
+}
+
+.skeleton-button {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 100%;
+    height: 2.75rem;
+    margin-top: 1rem;
+}
+
+/* Goal Card Skeleton */
+.skeleton-goal-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.skeleton-goal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-goal-icon {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.skeleton-goal-title {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    flex: 1;
+    height: 1.25rem;
+}
+
+.skeleton-progress {
+    margin-bottom: 1rem;
+}
+
+.skeleton-progress-bar {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+}
+
+.skeleton-goal-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skeleton-stat {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: var(--radius-sm);
+    width: 40%;
+    height: 1rem;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .skeleton-base {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+    background-size: 1000px 100%;
+}
