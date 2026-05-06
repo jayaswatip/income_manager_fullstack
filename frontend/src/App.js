@@ -11,24 +11,27 @@ import Budget from "./pages/Budget";
 import SavingsGoals from "./pages/SavingsGoals";
 import RecurringTransactions from "./pages/RecurringTransactions";
 import Navbar from "./components/Navbar";
+import { ToastProvider } from "./context/ToastContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/add-income" element={<AddIncome />} />
-        <Route path="/edit/:id" element={<EditIncome />} />
-        <Route path="/add-expense" element={<AddExpense />} />
-        <Route path="/edit-expense/:id" element={<EditExpense />} />
-        <Route path="/budget" element={<Budget />} />
-        <Route path="/savings-goals" element={<SavingsGoals />} />
-        <Route path="/recurring" element={<RecurringTransactions />} />
-      </Routes>
-    </BrowserRouter>
+    <ToastProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/add-income" element={<AddIncome />} />
+          <Route path="/edit/:id" element={<EditIncome />} />
+          <Route path="/add-expense" element={<AddExpense />} />
+          <Route path="/edit-expense/:id" element={<EditExpense />} />
+          <Route path="/budget" element={<Budget />} />
+          <Route path="/savings-goals" element={<SavingsGoals />} />
+          <Route path="/recurring" element={<RecurringTransactions />} />
+        </Routes>
+      </BrowserRouter>
+    </ToastProvider>
   );
 }
 
